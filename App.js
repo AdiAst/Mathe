@@ -1,27 +1,55 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
+import vera from './Rozen.jpg';
 
 const App = () => {
   return (
-    <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
+    <View
+      style={{ flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+    >
       <Profile />
-      <Text>Profile</Text>
     </View>
   );
 };
 const Profile = () => {
   return (
-    <View
-      style={{
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        backgroundColor: 'grey',
-        marginVertical: 15,
-      }}
-    >
-      <Text style={{ textAlign: 'center', marginTop: '40%' }}>Rathe N.</Text>
+    <View style={styles.cardProfile}>
+      <Image source={vera} style={styles.profile} />
+      <Text style={styles.username}>Rathe N.</Text>
+      <View style={styles.largeButton}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#393E46' }}>Edit</Text>
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  profile: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+  },
+  cardProfile: {
+    width: 300,
+    height: 400,
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 5,
+    backgroundColor: '#393E46',
+  },
+  username: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 15,
+    color: '#fff',
+  },
+  largeButton: {
+    width: '100%',
+    backgroundColor: '#FFC069',
+    paddingVertical: 15,
+    marginTop: 40,
+    alignItems: 'center',
+    borderRadius: 4,
+  },
+});
 export default App;
